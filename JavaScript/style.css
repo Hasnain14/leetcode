@@ -1,0 +1,34 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    
+    background-repeat: no-repeat;
+    height: 100vh;
+    background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);
+}
+.container{
+    width:50%;
+    background-color:rgb(219, 199, 199);
+    border: 3px solid rgb(17, 3, 65);
+    border-radius: 44px;
+    margin: auto;
+    text-align: center;
+}
+h4{
+    display: inline-block;
+    margin-top: 0;
+    text-transform: uppercase;
+    color: rgb(99, 10, 10);
+    font-family: 'Audiowide', cursive;
+    margin: 0 0 15px;
+}
+h1,h3{
+    text-transform: uppercase;
+    color: rgb(84, 37, 192);
+    font-family: 'Lumanosimo', cursive;
+    margin: 10px;
+
+}
