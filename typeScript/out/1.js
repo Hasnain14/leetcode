@@ -9,6 +9,6 @@ function twoSum(nums, target) {
     }
 }
 ;
-const nums = [3, 2, 4];
+const nums1 = [3, 2, 4];
 let target = 6;
-console.log(twoSum(nums, target));
+console.log(twoSum(nums1, target));
