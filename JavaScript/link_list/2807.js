@@ -1,81 +1,76 @@
-class node{
-    constructor(value){
-        this.value = value;
-        this.next = null;
-    }
+class node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
 }
 
-class linkList{
-    constructor(){
-        this.head = null;
-        this.size = 0;
+class linkList {
+  constructor() {
+    this.head = null;
+    this.size = 0;
+  }
+
+  addNode = (data) => {
+    const newNode = new node(data);
+
+    if (!this.head) {
+      this.head = newNode;
+    } else {
+      let current = this.head;
+      while (current.next != null) {
+        current = current.next;
+      }
+      current.next = newNode;
+      // this.next = head;
+    }
+    this.size++;
+    return this;
+  };
+
+  GCD = (a, b) => {
+    let n = Math.min(a, b);
+    let m = Math.max(a, b);
+
+    for (let i = n; i > 0; i--) {
+      if (m % i == 0 && n % i == 0) {
+        return i;
+      }
+    }
+  };
+
+  greatestCommonDivisor = () => {
+    let current = this.head;
+
+    if (current.next == null) {
+      return this.head;
     }
 
-    addNode = (data) => {
-        const newNode = new node(data);
-    
-        if(!this.head){
-            this.head = newNode;
-        }else{
-            let current = this.head;
-            while(current.next != null){
-                current = current.next;
-            }
-            current.next = newNode;
-            // this.next = head;
-        }
-        this.size++;
-        return this;
+    while (current.next != null) {
+      let temp = current.next;
+      let temp_GCD = this.GCD(temp.value, current.value);
+      //  console.log(temp_GCD)
+      const newNode = new node(temp_GCD);
+      //  let newNode = newList.addNode(temp_GCD);
+      //  console.log(newNode)
+      newNode.next = current.next;
+      current.next = newNode;
+
+      current = current.next.next;
     }
+  };
 
-    GCD = (a,b) => {
-       let n = Math.min(a,b);
-       let m = Math.max(a,b);
-       
-     for (let i = n; i > 0; i--) {
-        if (( m % i ) == 0 && (n % i ) == 0) {
-            return i;
-        }
-    }   
+  printList = () => {
+    let current = this.head;
+
+    while (current) {
+      console.log(current.value);
+      current = current.next;
     }
-
-    greatestCommonDivisor = () => {
-            let current = this.head;
-
-            if(current.next == null){
-                return this.head;
-            }
-
-            while(current.next != null){
-                let  temp = current.next;
-                 let temp_GCD =  this.GCD(temp.value,current.value);
-                //  console.log(temp_GCD)
-                    const newNode = new node(temp_GCD);
-                //  let newNode = newList.addNode(temp_GCD);
-                //  console.log(newNode)
-                 newNode.next = current.next;
-                 current.next = newNode;
-
-                current = current.next.next;
-
-              }
-          
-    }
-
-   
-
-    printList = () =>{
-        let current = this.head;
-    
-        while(current){
-            console.log(current.value);
-            current = current.next;
-        }
-    }
+  };
 }
 
-
-console.log("adding at start....")
+console.log("adding at start....");
 list = new linkList();
 list.addNode(18);
 list.addNode(6);
@@ -101,15 +96,15 @@ list.printList();
 //  * @param {ListNode} head
 //  * @return {ListNode}
 //  */
-// GCD = (a,b) => {
+// const GCD = (a,b) => {
 //     let n = Math.min(a,b);
 //     let m = Math.max(a,b);
-    
+
 //   for (let i = n; i > 0; i--) {
 //      if (( m % i ) == 0 && (n % i ) == 0) {
 //          return i;
 //      }
-//  }   
+//  }
 // }
 // var insertGreatestCommonDivisors = function(head) {
 //  let current = head;
