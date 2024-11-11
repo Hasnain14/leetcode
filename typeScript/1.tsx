@@ -1,3 +1,4 @@
+// leet code 
 function twoSum(nums: number[], target: number): number[] {
     const temp = new Map<number, number>();
 
