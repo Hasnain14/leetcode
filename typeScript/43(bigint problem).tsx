@@ -1,3 +1,4 @@
+// leetcode
 function multiply(num1: string, num2: string): string {
     let tempNum1 = num1.split(""),
     tempNum2 = num2.split(""),
