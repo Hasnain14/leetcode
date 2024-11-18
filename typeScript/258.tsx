@@ -1,18 +1,19 @@
 function addDigits(num: number): number {
-    // let tempOut = 0, result = 0;
-    // while(num >= 10){
-    //     tempOut = num;
-    //     while(tempOut > 0){
-    //         result += tempOut % 10;
-    //         tempOut = Math.floor(tempOut /10);
-    //     console.log(tempOut)
-    //     }
-    //     num = result;
+    let tempOut = 0, result = 0;
+    while (num > 9) {
+        tempOut = num;
+        result = 0;
+        while (tempOut > 0) {
+            result += tempOut % 10;
+            tempOut = Math.floor(tempOut / 10);
+            // console.log(tempOut)
+        }
+        num = result;
 
-    // }
-    return 1 + (num - 1) % 9;
+    }
+    return (num > 9) ? result : num;
 };
 
-let num = 18;
+let num = 9;
 
 console.log(addDigits(num));
