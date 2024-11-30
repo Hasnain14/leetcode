@@ -1,6 +1,6 @@
 function maxSatisfaction(satisfaction: number[]): number {
     let maxSum = 0;
-    console.log(satisfaction.length)
+    console.log(satisfaction.length);
     return maxSum;
 };
 
