@@ -1,0 +1,22 @@
+function sortTheStudents(score: number[][], k: number): number[][] {
+    // let resultArray:number[][] = [];
+    // let tempArray = [];
+    // for(let i = 0; i < score.length; i++){
+    //     tempArray.push(score[i][k])
+    // }
+    let sorted = score.sort((a, b) => b[k] - a[k]);
+    // let tempIndex = 0
+    // for(let i = 0; i < score.length; i++){
+    //     tempIndex = score.indexOf(sorted[i]);
+    //     console.log(sorted[i])
+    //     for(let j = 0; j < score[0].length; j++){
+    //         // resultArray[i][j] = score[tempIndex][i]
+    //     }
+    // }
+    // console.log(sorted)
+
+    return sorted;
+};
+
+let score = [[10,6,9,1],[7,5,11,2],[4,8,3,15]], k = 2;
+console.log(sortTheStudents(score,k));
