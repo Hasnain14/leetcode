@@ -1,0 +1,53 @@
+function decodeString(s: string): string {
+    let stack:string[] = [];
+    let tempString:string = "";
+    let tempCount:number = 0;
+    let repetString:number = 0;
+    let finalString:string = "";
+
+    for(let item of s){
+        if(!isNaN(Number(item)) && isFinite(Number(item))){
+            // if(stack.length > 0){
+            //     finalString += stack.join("");
+            //     let remove:string = "";
+            //     while(remove !== ){
+            //         stack.pop();
+            //     }
+            // }
+            tempCount = tempCount*10 + Number(item);
+        }else if(item === "["){
+            stack.push(tempCount.toString());
+            stack.push(item)
+            tempCount = 0;
+        }else if(item === "]"){
+            for(let itemInStack = stack.length -1; itemInStack > 0; itemInStack--){
+                // console.log(stack)
+                if(stack[itemInStack] === "["){
+                    // console.log(stack)
+                    stack.pop();
+                    repetString = Number(stack.pop());
+
+                    if(stack.length === 0){
+                        finalString = finalString + tempString.repeat(repetString);
+                        tempString = "";
+                    }else{
+                        tempString = tempString.repeat(repetString);
+                        itemInStack -= 1;
+                        // console.log(tempString)
+                    }
+
+                    // console.log(repetString)
+                }else{
+                    tempString = stack.pop() + tempString;
+                    // console.log("=" + tempString)
+                }
+            }
+        }else{
+            stack.push(item);
+        }
+    }
+    return (stack.length > 0) ?finalString+stack.join("") :finalString;
+};
+
+let s = "3[c2[d]]2[y]z";
+console.log(decodeString(s))
