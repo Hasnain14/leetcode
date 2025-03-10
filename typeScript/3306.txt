@@ -1,0 +1,57 @@
+function countOfSubstrings(word: string, k: number): number {
+    const vowel = new Map([['a', 0], ['e', 0], ['i', 0], ['o', 0], ['u', 0]]);
+    let count:number = 0;
+    let checkConsonent:number = 0;
+
+    for(let l = 0, r = 0; r < word.length; r++){
+        const itemNumber = vowel.get(word[r]);
+        if(itemNumber !== undefined){            
+            vowel.set(word[r],itemNumber + 1)
+        }else{
+            checkConsonent++
+        }
+
+        // if(checkConsonent === k &&  vowel.get('a')! > 0 
+        //     &&  vowel.get('e')! > 0 &&  vowel.get('i')! > 0
+        //     &&  vowel.get('o')! > 0 &&  vowel.get('u')! > 0){
+        //         count++;
+        //     if(vowel.has(word[l])){
+        //         vowel.set(word[l],vowel.get(word[l])! - 1)
+        //         l++;
+        //     }else{
+        //         checkConsonent--;
+        //     }
+        // }
+        // console.log(word[r],vowel.get(word[r]) , checkConsonent,count)
+    }
+    console.log(vowel, checkConsonent)
+    return count;
+};
+
+let word = "iqeaouqi", k = 2
+console.log(countOfSubstrings(word,k))
+
+// word = "aeiou", k = 0
+// word = "ieaouqqieaouqq", k = 1
+// word = "iqeaouqi", k = 2;
+
+
+// check
+// function countOfSubstrings(word: string, k: number) {
+//     const atLeastK = (k: number) => {
+//         let res = 0;
+//         const vowels = new Map([['a', 0], ['e', 0], ['i', 0], ['o', 0], ['u', 0]]);
+//         for (let L = 0, R = 0, consonants = 0; R < word.length; R++) {
+//             const itemR = vowels.get(word[R]);
+//             itemR !== undefined ? vowels.set(word[R], itemR + 1) : consonants += 1;
+//             while (Array.from(vowels.values()).every((c) => c > 0) && consonants >= k) {
+//                 res += word.length - R;
+//                 const itemL = vowels.get(word[L]);
+//                 itemL !== undefined ? vowels.set(word[L], itemL - 1) : consonants--;
+//                 L++;
+//             }
+//         }
+//         return res;
+//     };
+//     return atLeastK(k) - atLeastK(k + 1);
+// }
