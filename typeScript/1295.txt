@@ -1,0 +1,14 @@
+function findNumbers(nums: number[]): number {
+    let countFindNumber : number = 0;
+
+    for(let i = 0; i < nums.length; i++){
+        if(((nums[i].toString()).length) % 2 === 0){
+            countFindNumber++
+        }
+    }
+
+    return countFindNumber
+};
+
+let nums = [12,345,2,6,7896];
+console.log(findNumbers(nums))
