@@ -1,0 +1,26 @@
+function minDominoRotations(tops: number[], bottoms: number[]): number {
+    const n = tops.length, m = bottoms.length;
+    if (n != m)
+        return -1;
+    
+    const TOPS: number[] = Array(7).fill(0);
+    const BOTTOMS: number[] = Array(7).fill(0);
+    const SAME: number[] = Array(7).fill(0);
+
+    for (let i = 0; i < n; i++){
+        TOPS[tops[i]]++;
+        BOTTOMS[bottoms[i]]++;
+        if (tops[i] === bottoms[i])
+            SAME[tops[i]]++;
+    }
+    let res = Infinity;
+    for (let j = 1; j <= 6; j++){
+        if (TOPS[j] + BOTTOMS[j] - SAME[j] === n){
+            res = Math.min(res, Math.min(n - TOPS[j], n - BOTTOMS[j]));
+        }
+    }
+    return res === Infinity ? -1 : res;
+};
+
+let tops =[2,2,6,2,3,2], bottoms = [1,1,2,4,2,2];
+console.log(minDominoRotations(tops,bottoms))
